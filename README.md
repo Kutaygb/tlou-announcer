@@ -31,9 +31,9 @@ Create a .env file in the project root directory and add the following variables
 
 Run the script with the following command:
 
-    bash check_new_episode.sh
+    bash main.sh
 
-    You can also add the command to a cron job or a scheduled task to run the script automatically at regular intervals.
+You can also add the command to a cron job or a scheduled task to run the script automatically at regular intervals.
 
 #### Usage
 
