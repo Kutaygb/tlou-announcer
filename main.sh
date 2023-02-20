@@ -12,6 +12,7 @@ while true; do
     curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" \
       -d "chat_id=${CHAT_ID}" \
       -d "text=Watching episode ${EPISODE_NUM} of The Last of Us."
+      #paplay /usr/share/sounds/freedesktop/stereo/complete.oga  for sound
 
     ((EPISODE_NUM++))
   fi
