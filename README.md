@@ -3,9 +3,9 @@
 This is a Bash script that checks whether a new episode of a TV series has been added to the BluTV platform, and plays a sound or sends a notification if a new episode is found.
 ## Requirements
 
-    curl command-line tool
-    A sound player such as paplay (for sound notification)
-    A Telegram bot and chat ID (for Telegram notification)
+curl command-line tool
+A sound player such as paplay (for sound notification)
+A Telegram bot and chat ID (for Telegram notification)
 
 ### Installation
 
