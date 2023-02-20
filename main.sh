@@ -4,16 +4,15 @@ source .env
 
 while true; do
 
-  URL="https://www.blutv.com/diziler/yabanci/the-last-of-us/1-sezon/[$EPISODE_NUM]-bolum-izle"
+  URL="https://www.blutv.com/diziler/yabanci/the-last-of-us/1-sezon/$EPISODE_NUM-bolum-izle"
 
-  if curl -s -o /dev/null -w "%{http_code}" "$URL" | grep -q 404; then
-    echo "Error: Episode $EPISODE_NUM not found!"
-  else
-    curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" \
-      -d "chat_id=${CHAT_ID}" \
-      -d "text=Watching episode ${EPISODE_NUM} of The Last of Us."
-      #paplay /usr/share/sounds/freedesktop/stereo/complete.oga  for sound
-
+  if response=$(curl -s $URL); [[ $response == *"/404"* ]]; then
+    echo "Error: Page not found!"
+  else 
+    curl -s -X POST "https://api.telegram.org/bot$TELEGRAM_API_KEY/sendMessage" \
+      -d chat_id="$CHAT_ID" \
+      -d text="BluTV - The Last of Us - 1. Season Episode $EPISODE_NUM. live!!"
+      #paplay /usr/share/sounds/freedesktop/stereo/complete.oga
     ((EPISODE_NUM++))
   fi
 
