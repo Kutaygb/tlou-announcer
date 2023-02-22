@@ -9,9 +9,7 @@ while true; do
   if response=$(curl -s $URL); [[ $response == *"/404"* ]]; then
     echo "Error: Page not found!"
   else 
-    curl -s -X POST "https://api.telegram.org/bot$TELEGRAM_API_KEY/sendMessage" \
-      -d chat_id="$CHAT_ID" \
-      -d text="BluTV - The Last of Us - 1. Season Episode $EPISODE_NUM. live!!"
+    curl -sX POST "https://api.telegram.org/bot$TELEGRAM_API_KEY/sendMessage" -d "chat_id=$CHAT_ID" -d "text=BluTV - The Last of Us - 1. Season Episode $EPISODE_NUM. live!!"
       #paplay /usr/share/sounds/freedesktop/stereo/complete.oga
     ((EPISODE_NUM++))
   fi
